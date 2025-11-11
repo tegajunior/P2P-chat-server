@@ -1,27 +1,42 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "NodeNext", // ✅ Must match moduleResolution
+//     "moduleResolution": "NodeNext",
+//     "lib": ["ES2020"],
+//     "rootDir": "src",
+//     "outDir": "dist",
+
+//     /* Type-safety and interop */
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noImplicitAny": true,
+
+//     /* Node & Feathers types */
+//     "types": ["node"],
+
+//     /* Quality-of-life */
+//     "sourceMap": true,
+//     "ignoreDeprecations": "6.0"
+//   },
+//   "include": ["src/**/*.ts", "types/**/*.d.ts"],
+
+//   "exclude": ["node_modules", "dist"]
+// }
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "NodeNext", // ✅ Must match moduleResolution
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "lib": ["ES2020"],
-    "rootDir": "src",
     "outDir": "dist",
-
-    /* Type-safety and interop */
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-
-    /* Node & Feathers types */
-    "types": ["node"],
-
-    /* Quality-of-life */
+    "rootDir": "src",
     "sourceMap": true,
-    "ignoreDeprecations": "6.0"
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
   },
-  "include": ["src/**/*.ts", "types/**/*.d.ts"],
-
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }

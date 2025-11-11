@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node src/index.js"
+    "start": "node --enable-source-maps dist/index.js"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "@feathersjs/authentication": "^5.0.35",
