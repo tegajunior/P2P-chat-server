@@ -1,0 +1,114 @@
+# -----------------------------
+# 🧠 General Node.js
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log*
+
+# -----------------------------
+# ⚙️ Build outputs
+# -----------------------------
+dist/
+build/
+.tmp/
+.temp/
+.cache/
+.nuxt/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# -----------------------------
+# 🖥️ Environment files
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# 📦 Logs and PIDs
+# -----------------------------
+*.log
+logs/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# -----------------------------
+# 🧪 Test files
+# -----------------------------
+coverage/
+.vscode-test/
+
+# -----------------------------
+# 🧭 Frontend (Nuxt / Vue / Tailwind)
+# -----------------------------
+# Nuxt specific
+.nuxt/
+.output/
+.cache/
+*.local
+.DS_Store
+
+# Tailwind
+tailwind.config.js.tmp
+.postcssrc.js
+
+# Vue
+*.local
+.vuepress/dist
+vue.config.js.tmp
+
+# -----------------------------
+# 🧠 Backend (FeathersJS / Express)
+# -----------------------------
+# Feathers generated files
+public/
+lib/
+logs/
+uploads/
+config/default.json
+config/production.json
+config/development.json
+src/**/*.d.ts
+
+# -----------------------------
+# 🧩 TypeScript
+# -----------------------------
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# -----------------------------
+# 🧰 IDE / Editor / OS files
+# -----------------------------
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
+.DS_Store
+ehthumbs.db
+desktop.ini
+
+# -----------------------------
+# 🚀 Misc
+# -----------------------------
+*.bak
+*.orig
+*.rej
+*.zip
+*.tar.gz
+*.tgz
+*.env.local
+*.env.development.local
+*.env.production.local
+*.env.test.local
