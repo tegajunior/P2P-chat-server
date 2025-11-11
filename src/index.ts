@@ -8,7 +8,7 @@ async function startServer() {
     const port = process.env.PORT || 4000
 
     app.listen(port, () => {
-      console.log(`server running at http://localhost:${port}`)
+      console.log(`server running at ${port}`)
     })
   } catch (err) {
     console.error('❌ Failed to start server:', err)
