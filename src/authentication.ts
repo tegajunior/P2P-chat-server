@@ -1,6 +1,6 @@
 import { AuthenticationService, JWTStrategy } from '@feathersjs/authentication'
 import { LocalStrategy } from '@feathersjs/authentication-local'
-import type { Application } from './declarations.js'
+import type { Application } from './declarations'
 
 export default function (app: Application): void {
   // Setting authentication configuration manually

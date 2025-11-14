@@ -1,4 +1,4 @@
-import { Application } from '../../declarations.js'
+import { Application } from '../../declarations'
 import MongoDBService from 'feathers-mongodb'
 import { ObjectId } from 'mongodb'
 import bcrypt from 'bcryptjs'

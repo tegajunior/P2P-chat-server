@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb'
-import { Application } from './declarations.js'
+import { Application } from './declarations'
 
 export default async function (app: Application): Promise<void> {
   const connection = app.get('mongodb')

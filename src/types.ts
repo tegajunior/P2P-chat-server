@@ -1,3 +1,7 @@
+import { Application as FeathersApplication } from '@feathersjs/feathers'
+
+export type Application = FeathersApplication<any>
+
 export interface User {
   _id?: string
   firstName: string
