@@ -29,7 +29,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "es2020",
-    "ignoreDeprecations": "6.0",
+    // "ignoreDeprecations": "",
     "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": "src",
