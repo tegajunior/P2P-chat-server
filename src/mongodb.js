@@ -10,5 +10,5 @@ export default async function (app) {
   const client = await MongoClient.connect(connection, {})
   const db = client.db()
   app.set('mongoClient', db)
-  console.log('MongoDB connected')
+  //   console.log('MongoDB connected')
 }
