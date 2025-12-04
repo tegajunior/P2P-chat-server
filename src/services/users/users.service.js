@@ -1,11 +1,13 @@
-import { Application } from '../../declarations'
 import MongoDBService from 'feathers-mongodb'
 import { ObjectId } from 'mongodb'
 import bcrypt from 'bcryptjs'
-import type { HookContext } from '@feathersjs/feathers'
-import { User } from '../../types.js'
 
-export default function (app: Application): void {
+/**
+ * Configure users service
+ * @param {import('../../types.js').Application} app
+ * @returns {void}
+ */
+export default function (app) {
   const db = app.get('mongoClient')
 
   const options = {
@@ -20,8 +22,8 @@ export default function (app: Application): void {
   service.hooks({
     before: {
       create: [
-        async (context: HookContext) => {
-          const data = context.data as User
+        async (context) => {
+          const data = context.data
           if (data?.password) {
             const salt = await bcrypt.genSalt(10)
             data.password = await bcrypt.hash(data.password, salt)
@@ -31,9 +33,9 @@ export default function (app: Application): void {
       ],
 
       find: [
-        async (context: HookContext) => {
+        async (context) => {
           const q = context.params.query ?? {}
-          const search = q.search as string | undefined
+          const search = q.search
 
           // If frontend uses `search`, convert to regex-based OR query
           if (search) {
@@ -47,7 +49,7 @@ export default function (app: Application): void {
           // ✅ If frontend sends regex directly (like your searchUsers does),
           // just ensure the query is safe (MongoDB understands it natively)
           if (Array.isArray(q.$or)) {
-            q.$or = q.$or.map((cond: any) => {
+            q.$or = q.$or.map((cond) => {
               const key = Object.keys(cond)[0]
               const value = cond[key]
               if (typeof value === 'string') {
@@ -58,7 +60,7 @@ export default function (app: Application): void {
           }
 
           // Exclude the logged-in user from search
-          const selfId = (context.params as any)?.user?._id
+          const selfId = context.params?.user?._id
           if (selfId) {
             try {
               q._id = { $ne: new ObjectId(selfId) }
@@ -77,24 +79,22 @@ export default function (app: Application): void {
 
     after: {
       all: [
-        async (context: HookContext) => {
+        async (context) => {
           // ✅ Strip password field in external responses
           const isExternal = !!context.params.provider
           if (!isExternal) return context
 
-          const strip = (u: any) => {
+          const strip = (u) => {
             if (u?.password) delete u.password
             return u
           }
 
-          if (Array.isArray((context as any).result?.data)) {
-            ;(context as any).result.data = (context as any).result.data.map(
-              strip
-            )
-          } else if (Array.isArray((context as any).result)) {
-            ;(context as any).result = (context as any).result.map(strip)
-          } else if ((context as any).result) {
-            ;(context as any).result = strip((context as any).result)
+          if (Array.isArray(context.result?.data)) {
+            context.result.data = context.result.data.map(strip)
+          } else if (Array.isArray(context.result)) {
+            context.result = context.result.map(strip)
+          } else if (context.result) {
+            context.result = strip(context.result)
           }
 
           return context

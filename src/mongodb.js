@@ -1,7 +1,11 @@
 import { MongoClient } from 'mongodb'
-import { Application } from './declarations'
 
-export default async function (app: Application): Promise<void> {
+/**
+ * Initialize MongoDB connection
+ * @param {import('./types.js').Application} app
+ * @returns {Promise<void>}
+ */
+export default async function (app) {
   const connection = app.get('mongodb')
   const client = await MongoClient.connect(connection, {})
   const db = client.db()

@@ -1,8 +1,12 @@
 import { AuthenticationService, JWTStrategy } from '@feathersjs/authentication'
 import { LocalStrategy } from '@feathersjs/authentication-local'
-import type { Application } from './declarations'
 
-export default function (app: Application): void {
+/**
+ * Configure authentication service
+ * @param {import('./types.js').Application} app
+ * @returns {void}
+ */
+export default function (app) {
   // Setting authentication configuration manually
   app.set('authentication', {
     secret: 'supersecretjwtkey',
@@ -31,5 +35,6 @@ export default function (app: Application): void {
   // Mount service
   app.use('/authentication', authentication)
 
-  console.log('Authentication service configured') // Just for debugging
+  //   console.log('Authentication service configured')
+  // Just for debugging
 }
